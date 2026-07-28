@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { --background: 145 51% 16%; --foreground: 48 33% 94%; --card: 47 55% 96%; --card-foreground: 145 28% 14%; --popover: 145 44% 18%; --popover-foreground: 48 33% 94%; --primary: 47 69% 69%; --primary-foreground: 145 43% 15%; --secondary: 143 30% 27%; --secondary-foreground: 48 33% 94%; --muted: 143 26% 24%; --muted-foreground: 47 18% 73%; --accent: 47 69% 69%; --accent-foreground: 145 43% 15%; --destructive: 4 58% 42%; --destructive-foreground: 0 0% 98%; --border: 142 22% 34%; --input: 142 22% 34%; --ring: 47 69% 69%; --radius: .2rem; --font-heading: Georgia, serif; --font-body: Tahoma, Verdana, sans-serif; --font-display: Georgia, serif; --font-mono: "Courier New", monospace; }
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground font-body antialiased; }
+  button { -webkit-tap-highlight-color: transparent; }
+}
+@layer components {
+  .felt-table { background-color:#07552f; background-image: radial-gradient(circle at 50% 35%,rgba(50,145,87,.32),transparent 42%),repeating-radial-gradient(circle at 20% 20%,rgba(255,255,255,.025) 0 1px,transparent 1px 4px); box-shadow:inset 0 12px 35px rgba(0,0,0,.28); }
+  .card-face { @apply absolute inset-0 flex flex-col rounded-[8px] border border-[#d8d2bb] p-4 shadow-[0_9px_20px_rgba(0,0,0,.38),0_2px_3px_rgba(0,0,0,.3)] [backface-visibility:hidden]; }
+  .card-face:after { content:""; @apply pointer-events-none absolute inset-[5px] rounded-[5px] border border-[#b7aa7c]/30; }
+  .classic-button { @apply flex h-9 items-center justify-center gap-2 border-2 border-t-white border-l-white border-r-[#55544c] border-b-[#55544c] bg-[#dddacd] text-xs font-semibold text-[#242a25] shadow-sm active:border-t-[#55544c] active:border-l-[#55544c] active:border-r-white active:border-b-white; }
+  .active-card-glow { filter:drop-shadow(0 0 15px rgba(249,226,137,.32)); }
+}
+@keyframes card-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+.animate-card-float { animation:card-float 4.8s ease-in-out infinite; }
